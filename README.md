@@ -1,14 +1,13 @@
 # mars-rover
 
-A Clojure library designed to ... well, that part is up to you.
+Mars rover toy problem in Clojure
 
 ## Usage
 
-FIXME
+To move the rover, enter the number of steps to move followed by direction without a whitespace. To separate directions, use a comma 
+e.g. 2E,3W
 
-## License
+The `orient` command can be used to change the orientation of the rover 
+e.g. orient N will make the rover face north
 
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Only the standard directions i.e. (NSEW) is understood
