@@ -9,5 +9,5 @@
 )
 
 (defn move [steps direction]
-	(def co-ordinates (nav/get-new-position steps direction))
+	(def co-ordinates (nav/get-new-position co-ordinates steps direction))
 )
