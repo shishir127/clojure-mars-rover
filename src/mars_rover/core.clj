@@ -1,5 +1,6 @@
 (ns mars-rover.core
 	(:require [mars-rover.rover :as rover]
+						[mars-rover.command :as command]
 			  		[clojure.string :as string]
 	)
 )
@@ -12,7 +13,7 @@
   (def continue-program true)
   (while continue-program
   	(def user-input (string/trim (read-line)))
-		(println user-input)
+		(println (command/execute user-input))
 		(def continue-program false)
   )
 )
