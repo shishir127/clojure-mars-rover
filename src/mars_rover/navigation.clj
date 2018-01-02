@@ -6,9 +6,9 @@
 	"Given the current position and direction of movement, will compute the new position"
 	[current-position steps direction]
 	(case direction
-		:N {:X (get current-position :X) :Y (+ steps (get current-position :Y))}
-		:S {:X (get current-position :X) :Y (- steps (get current-position :Y))}
-		:E {:X (+ steps (get current-position :X)) :Y (get current-position :Y)}
-		:W {:X (- steps (get current-position :X)) :Y (get current-position :Y)}
+		:N {:X (get current-position :X) :Y (+ (get current-position :Y) steps)}
+		:S {:X (get current-position :X) :Y (- (get current-position :Y) steps)}
+		:E {:X (+ (get current-position :X) steps) :Y (get current-position :Y)}
+		:W {:X (- (get current-position :X) steps) :Y (get current-position :Y)}
 	)
 )
