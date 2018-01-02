@@ -8,3 +8,5 @@ To move the rover, enter the number of steps to move followed by direction with 
 e.g. 2 E,3 W
 
 Only the standard directions i.e. (NSEW) is understood
+
+Enter `quit` to exit the program.
