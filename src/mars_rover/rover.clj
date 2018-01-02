@@ -1,4 +1,6 @@
-(ns mars-rover.rover)
+(ns mars-rover.rover
+	(:require [mars-rover.navigation :as nav])
+)
 
 (def co-ordinates {:X 0 :Y 0})
 
@@ -8,8 +10,13 @@
 	(str (get co-ordinates :X) ", " (get co-ordinates :Y))
 )
 
-(def directions {:N "north" :S "south" :E "east" :W "west"})
-
 (defn get-orientation []
-	(get directions orientation)
+	(get nav/directions orientation)
+)
+
+(defn set-orientation [new-orientation]
+	(if (contains? nav/directions new-orientation)
+		(def orientation new-orientation)
+		false
+	)
 )
