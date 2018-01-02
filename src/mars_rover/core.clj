@@ -8,16 +8,11 @@
   "Runs the mars rover simulator"
   [& args]
   (println "Starting the Mars rover simulator")
-  (command/print-status)
-  (def continue-program true)
-  (while continue-program
+  (println (command/get-status))
+  (while true
   	(def user-input (string/trim (read-line)))
 		(let [command (command/parse user-input)]
-      (if (get command :valid)
-        (command/execute command)
-        (println "Please enter correct input")
-      )
+      (println (command/execute command))
     )
-		; (def continue-program false)
   )
 )

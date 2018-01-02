@@ -40,11 +40,11 @@
 	)
 )
 
-(defn print-status [] (println (format "The rover is now at %s" (rover/get-location))))
+(defn get-status [] (format "The rover is now at %s" (rover/get-location)))
 
-(defn move-rover-and-print-status [steps direction] 
+(defn move-rover-and-get-status [steps direction] 
   (rover/move steps direction)
-  (print-status)
+  (get-status)
 )
 
 (defn quit-program []
@@ -53,8 +53,11 @@
 )
 
 (defn execute [command]
-	(case (get command :type)
-		:quit (quit-program)
-		:navigation (move-rover-and-print-status (get command :steps) (get command :direction))
+	(if (get command :valid)
+		(case (get command :type)
+			:quit (quit-program)
+			:navigation (move-rover-and-get-status (get command :steps) (get command :direction))
+		)
+		"Please enter correct input"
 	)
 )
