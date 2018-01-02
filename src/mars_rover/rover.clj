@@ -4,19 +4,10 @@
 
 (def co-ordinates {:X 0 :Y 0})
 
-(def orientation :N)
-
 (defn get-location []
 	(str (get co-ordinates :X) ", " (get co-ordinates :Y))
 )
 
-(defn get-orientation []
-	(get nav/directions orientation)
-)
-
-(defn set-orientation [new-orientation]
-	(if (contains? nav/directions new-orientation)
-		(def orientation new-orientation)
-		false
-	)
+(defn move [steps direction]
+	(def co-ordinates (nav/get-new-position steps direction))
 )

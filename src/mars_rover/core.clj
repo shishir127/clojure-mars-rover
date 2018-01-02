@@ -9,11 +9,11 @@
   "Runs the mars rover simulator"
   [& args]
   (println "Starting the Mars rover simulator")
-  (println (format "The rover is now at %s and facing %s" (rover/get-location) (rover/get-orientation)))
+  (println (format "The rover is now at %s" (rover/get-location)))
   (def continue-program true)
   (while continue-program
   	(def user-input (string/trim (read-line)))
-		(println (command/execute user-input))
+		(println (command/parse user-input))
 		(def continue-program false)
   )
 )
