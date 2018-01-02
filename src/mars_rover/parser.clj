@@ -15,9 +15,9 @@
 	(contains? nav/directions (keyword (string/upper-case direction)))
 )
 
-(defn- parse-navigate-command [input]
-	(if (and (= 2 (count input)) (valid-number? (first input)) (valid-direction? (last input)))
-		{:steps (Integer/parseInt (first input)) :direction (keyword (string/upper-case (last input))) :valid true :type :navigation}
+(defn- parse-navigate-command [[steps direction]]
+	(if (and (not (nil? steps)) (not (nil? direction)) (valid-number? steps) (valid-direction? direction))
+		{:steps (Integer/parseInt steps) :direction (keyword (string/upper-case direction)) :valid true :type :navigation}
 		{:valid false}
 	)
 )
