@@ -2,7 +2,7 @@
 	(:require [mars-rover.navigation :as nav])
 )
 
-(def co-ordinates {:X 0 :Y 0})
+(def ^{:private true} co-ordinates {:X 0 :Y 0})
 
 (defn get-location []
 	(str (get co-ordinates :X) ", " (get co-ordinates :Y))
