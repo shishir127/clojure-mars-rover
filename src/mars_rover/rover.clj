@@ -11,3 +11,5 @@
 (defn move [steps direction]
 	(def co-ordinates (nav/get-new-position co-ordinates steps direction))
 )
+
+(defn reset [] (def ^{:private true} co-ordinates {:X 0 :Y 0}))

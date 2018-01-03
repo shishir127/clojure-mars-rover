@@ -12,8 +12,8 @@
   (println (command/get-status))
   (while true
   	(def user-input (string/trim (read-line)))
-		(let [command (parser/parse user-input)]
-      (println (command/execute command))
+		(let [command-details (parser/parse user-input)]
+      (println ((get command-details :function) (get command-details :arguments)))
     )
   )
 )

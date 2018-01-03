@@ -7,22 +7,16 @@
 
 (defn get-status [] (format "The rover is now at %s" (rover/get-location)))
 
-(defn move-rover-and-get-status [steps direction] 
+(defn move-rover-and-get-status [[steps direction]]
   (rover/move steps direction)
   (get-status)
 )
 
-(defn quit-program []
+(defn quit-program [& args]
 	(println "Goodbye")
 	(System/exit 0)
 )
 
-(defn execute [command]
-	(if (get command :valid)
-		(case (get command :type)
-			:quit (quit-program)
-			:navigation (move-rover-and-get-status (get command :steps) (get command :direction))
-		)
-		"Please enter correct input"
-	)
+(defn invalid-input [& args]
+	"Please enter correct input"
 )
